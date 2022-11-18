@@ -1,0 +1,70 @@
+.ObjectForm{
+    background-color: #0f7afc;
+    margin: 10px;
+    color: black;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 1),
+    -23px 0 20px -23px rgba(0, 0, 0, .8),
+    23px 0 20px -23px rgba(0, 0, 0, .8),
+    0 0 40px rgba(0, 0, 0, .1) inset;
+
+    border-radius: 30px;
+    padding: 10px;
+}
+.ObjectForm img{
+    width: 35%;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 10%;
+}
+.CarTitle h1{
+    text-transform: capitalize;
+    padding: 10px;
+    text-align: center;
+}
+
+.carInformation {
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 400;
+}
+.carInformation dt, .carInformation dd {
+    height: 2.5em;
+    line-height: 2.5em;
+    padding: 0 0.625em 0 0.875em;
+    color: black;
+    box-sizing: border-box;
+}
+ dt {
+    width: 30%;
+    float: left;
+    clear: right;
+    background: #D3E6DD;
+    font-weight: bold;
+}
+ dd {
+    width: 70%;
+    float: right;
+    margin-left: 0;
+    margin-bottom: .3125em;
+    border: 1px solid #BECFC7;
+    border-left: none;
+}
+
+
+.AllObjectForm{
+
+
+   /* padding: 20px;*/
+}
+.Search input{
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 50%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 12px;
+
+}
+
