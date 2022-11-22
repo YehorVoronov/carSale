@@ -5,6 +5,17 @@ const cors = require("cors");
 const mysql = require('mysql')
 const fetch = require('node-fetch');
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 // const conn =mysql.createConnection({
 //     host:"localhost",
@@ -83,7 +94,44 @@ app.get("/anotherAPI",(req  , res)=>{
             res.json(data)
         })
 });
+//--------------
+//
+//
+//
+//
+app.get('/api/allInformation/pageNumber/:num', (req, res) => {
+    let num=parseInt(req.params.num);
+    if (num<=0){
+        num=1
+    }
 
+    let query="SELECT * FROM `cars_node` LIMIT "+(num*5-5)+","+(5)+";"
+
+   /* function getGet(name) {
+        let s = window.location.search;
+        s = s.match(new RegExp(name + '=([^&=]+)'));
+        return s ? s[1] : false;
+    }
+
+    alert(getGet('tab'));
+*/
+
+    conn.query(query,(err,result,field)=>{
+        if(err){
+            console.log(err);
+            closeDataMysql();
+            res.status(403).json({message: err.message});
+        }
+        closeDataMysql();
+        res.status(200).json(result);
+    })
+
+})
+//
+//
+//
+///
+//
 app.get('/api/allInformation', (req, res) => {
     let query="SELECT * FROM `cars_node`;"
 
@@ -116,7 +164,6 @@ app.get('/api/register', (req, res) => {
 
 //register :create new account
 app.post('/api/register', (req, res) => {
-console.log(req.body)
     const { login, password, phone  } = req.body;
     let id=Math.floor(Math.random() * 10000);
 
@@ -124,7 +171,6 @@ console.log(req.body)
         "', '"+login.toString()+
         "', '"+password.toString()+
         "','"+phone.toString()+ "');"
-
     conn.query(query,(err,result,field)=>{
         if(err){
             console.log(err);
@@ -136,8 +182,29 @@ console.log(req.body)
             ...req.body,
             id: id
         }
-
         res.status(201).json(contact);
+    })
+})
+app.put('/api/register/:id', (req, res) => {
+    let {isLog } = req.body
+    let id = req.params.id;
+
+let query="UPDATE `register` SET `isLog` = '"+isLog.toString()+"' WHERE `register`.`id` = "+id.toString()+";"
+
+    /*let query="UPDATE `cars_node` SET `id`='"+id.toString()+
+        "',`carName`='"+carName.toString()+
+        "',`owner`='"+owner.toString()+
+        "',`description`='"+description.toString()+
+        "',`reg_date`=CURRENT_TIMESTAMP WHERE `id`='"+id.toString()+"';"*/
+
+    conn.query(query,(err,result,field)=>{
+        if(err){
+            console.log(err);
+            closeDataMysql();
+            res.status(403).json({message: err.message});
+        }
+        closeDataMysql();
+        res.status(200).json({message:"update login : good )"})
     })
 
 })
@@ -145,13 +212,21 @@ console.log(req.body)
 
 app.post('/api/cars', (req, res) => {
 console.log(req.body)
-    const { description, owner, carName,photoUrl,photoUrl2,photoUrl3,photoUrl4,photoUrl5,photoUrl6  } = req.body;
+    const { description, owner, carName,photoUrl,photoUrl2,photoUrl3,photoUrl4,photoUrl5,photoUrl6,phone  } = req.body;
     let id=Math.floor(Math.random() * 1000);
 
     let query="INSERT INTO `cars_node` (`id`, `carName`, `owner`, `description`," +
-        " `reg_date`, `photoUrl`, `photoUrl2`, `photoUrl3`, `photoUrl4`, `photoUrl5`, `photoUrl6`) " +
-        "VALUES (NULL, '"+carName.toString()+"', '"+owner.toString()+"', '"+description.toString()+"', CURRENT_TIMESTAMP," +
-        " '"+photoUrl.toString()+"', '"+photoUrl2.toString()+"', '"+photoUrl3.toString()+"', '"+photoUrl4.toString()+"', '"+photoUrl5.toString()+"', '"+photoUrl6.toString()+"');"
+        " `reg_date`, `photoUrl`, `photoUrl2`, `photoUrl3`, `photoUrl4`, `photoUrl5`, `photoUrl6`,`phone`) " +
+        "VALUES (NULL, '"+carName.toString()+
+        "', '"+owner.toString()+
+        "', '"+description.toString()+
+        "', CURRENT_TIMESTAMP," +
+        " '"+photoUrl.toString()+
+        "', '"+photoUrl2.toString()+
+        "', '"+photoUrl3.toString()+
+        "', '"+photoUrl4.toString()+
+        "', '"+photoUrl5.toString()+
+        "', '"+photoUrl6.toString()+"', '"+phone.toString()+"');"
 
     conn.query(query,(err,result,field)=>{
         if(err){
@@ -211,15 +286,16 @@ app.delete("/api/cars/deleteAll",(req,res)=>{
 
 // PUT
 app.put('/api/cars/:id', (req, res) => {
-    let {carName, owner, description } = req.body
+    let {carName, owner, description,phone } = req.body
     let id = req.params.id;
-
+console.log(phone)
 
     let query="UPDATE `cars_node` SET `id`='"+id.toString()+
         "',`carName`='"+carName.toString()+
         "',`owner`='"+owner.toString()+
         "',`description`='"+description.toString()+
-        "',`reg_date`=CURRENT_TIMESTAMP WHERE `id`='"+id.toString()+"';"
+        "',`phone`='"+phone.toString()+
+        "',`reg_date`=CURRENT_TIMESTAMP WHERE `id`='"+id.toString()+ "';"
 
     conn.query(query,(err,result,field)=>{
         if(err){
