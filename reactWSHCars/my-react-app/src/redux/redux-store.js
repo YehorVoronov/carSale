@@ -1,3 +1,4 @@
+/*
 import {combineReducers, createStore} from "redux";
 import headReducer from "./head-reducer";
 
@@ -8,4 +9,4 @@ let reducers= combineReducers({
 
 let store =createStore(reducers);
 
-export default store;
+export default store;*/

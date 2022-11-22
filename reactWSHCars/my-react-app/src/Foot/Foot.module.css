@@ -1,5 +1,5 @@
 .AllFoot{
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     background: rgb(100,100,100) radial-gradient(circle at 50% 0, rgba(255,255,255,.65), rgba(255,255,255,.35));
     box-shadow:
             inset rgba(0,0,0,.6) 0 -3px 8px,

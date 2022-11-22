@@ -34,8 +34,9 @@ props.registerApi.map(e=>{
     if (e.login===loginRef.current.value
         &&e.password===passwordRef.current.value
         &&e.phone===phoneRef.current.value){
-props.logToTrue()
-
+//props.logToTrue()
+        debugger
+props.dispatchIsLogTrue([e.id])
        //dispatch( isLogTrue());
     }
 })

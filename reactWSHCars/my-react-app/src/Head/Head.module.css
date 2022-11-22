@@ -29,17 +29,57 @@ background-color: red;
     grid-template-areas:'  photo menuBtn';
     background-color: darkseagreen;
 
-    margin: 1px;
     background-color: #182AD4;
 
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     background: rgb(100,100,100) radial-gradient(circle at 50% 0, rgba(255,255,255,.65), rgba(255,255,255,.35));
     box-shadow:
             inset rgba(0,0,0,.6) 0 -3px 8px,
             inset rgba(252,255,255,.7) 0 3px 8px,
             rgba(0,0,0,.8) 0 3px 8px -3px;
+
 }
 .headMenu button{
+    display: inline-block;
+    width: 200px;
+    padding: 8px;
+    color: #000;
+    border: 1px solid #fff;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+
+    box-shadow:
+            inset rgba(0,0,0,.6) 0 -3px 8px,
+            inset rgba(252,255,255,.7) 0 3px 8px,
+            rgba(0,0,0,.8) 0 3px 8px -3px;
+    border-radius: 10px;
+    margin: 5px;
+}
+.headMenu button {
+
+  /*  padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    width: 100%;
+    border-radius: 15px;*/
+}
+
+button:hover {
+    background-color: #555555;
+    color: white;
+}
+
+/*.headMenu button{
     position: relative;
     display: inline-block;
     font-size: 90%;
@@ -67,7 +107,7 @@ background-color: red;
             0 0 1px rgba(0,0,0,.5) inset,
             0 2px 3px rgba(0,0,0,.5) inset,
             0 1px 1px rgba(255,255,255,.1);
-}
+}*/
 .logo img{
    width: 30%;
     border-radius: 10px;

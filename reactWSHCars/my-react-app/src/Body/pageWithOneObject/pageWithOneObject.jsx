@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import style from "./pageWithOneObject.module.css"
 import {NavLink,useNavigate} from "react-router-dom";
+import {LeftCircleOutlined, RightCircleOutlined} from "@ant-design/icons";
 
 function PageWithOneObject(props) {
 
@@ -10,6 +11,7 @@ function PageWithOneObject(props) {
 const carNameRef=React.useRef()
 const ownerRef=React.useRef()
 const descriptionRef=React.useRef()
+const phoneRef=React.useRef()
 
     /*if (count-1>props.photo.length){
 setCount(0)
@@ -25,13 +27,25 @@ photoUrl[0]=props.state.photoUrl;
  photoUrl[4]=props.state.photoUrl5;
  photoUrl[5]=props.state.photoUrl6;
 
-        console.log(props.photo.length)
     return (<div className={style.ObjectForm}>
 
             {/*{props.photo.map(e=><img src={e.toString()} />)}
             {count}*/}
             {count}
-            <img src={photoUrl[count]} />
+            <div>
+                <img src={photoUrl[count]} />
+            </div>
+
+            <div className={style.changePhoto}>
+                <button onClick={() => {
+                    setCount(count -1)
+                    if (count<=0){
+                        setCount(photoUrl.length-1)
+
+                    }
+                }}>
+                    <LeftCircleOutlined />
+                </button>
             <button onClick={() =>{
                 if ((count+1)>=photoUrl.length){
                     setCount(0)
@@ -40,25 +54,21 @@ photoUrl[0]=props.state.photoUrl;
                 }
 
             }}>
-                Click me +
+                <RightCircleOutlined />
             </button>
-            <button onClick={() => {
-                setCount(count -1)
-                if (count<=0){
-                    setCount(photoUrl.length-1)
 
-                }
-            }}>
-                Click me -
-            </button>
+            </div>
             <div>id:{props.state.id}</div>
             <div>carName:{props.state.carName}</div><input type="text"  ref={carNameRef}/>
             <div>owner:{props.state.owner}</div><input type="text"  ref={ownerRef}/>
+            <div>owner phone:{props.state.phone}</div><input type="text"  ref={phoneRef}/>
             <div>description:{props.state.description}</div><input type="text"  ref={descriptionRef}/>
             <div>reg_date:{props.state.reg_date}</div>
 <div>
-            <button onClick={()=> {
-                fetch('http://localhost:3000/api/cars/' + props.state.id, {
+            <button onClick={()=> {props.dispatchUpdateOneObjFromApi([carNameRef.current.value,
+                ownerRef.current.value,
+                descriptionRef.current.value,props.state.id,phoneRef.current.value])
+               /* fetch('http://localhost:3000/api/cars/' + props.state.id, {
                     method: 'PUT',
                     headers: {'Content-Type': 'application/json'},
                     body: '{"carName":"' + carNameRef.current.value + '", ' +
@@ -69,9 +79,10 @@ photoUrl[0]=props.state.photoUrl;
                     .then(res => console.log(res))
 
                 navigate("/");
-                window.location.reload(false)
+               /!* window.location.reload(false)*!/*/
+                navigate("/");
 
-            }}> change information about my ad in dataBase</button>
+            }}> change information </button>
 </div>
 
                 information about car
@@ -89,8 +100,8 @@ photoUrl[0]=props.state.photoUrl;
             <div>
 
 <NavLink to="/">
-                <button onClick={()=> {
-                    fetch('http://localhost:3000/api/cars/deleteOne/' + props.state.id, {
+                <button onClick={()=> {props.dispatchDeleteOneObjFromApi([props.state.id])
+                    /*fetch('http://localhost:3000/api/cars/deleteOne/' + props.state.id, {
                         method: 'DELETE',
                     })
                         .then(res => res.text()) // or res.json()
@@ -99,11 +110,12 @@ photoUrl[0]=props.state.photoUrl;
                     setTimeout(()=>{
                         navigate("/");
                         window.location.reload(false)
-                    },3000)
+                    },3000)*/
 
                 }}>delete this advertisement</button>
 </NavLink>
             </div>
+
             </div>
 
     );

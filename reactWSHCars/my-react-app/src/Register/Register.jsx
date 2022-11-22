@@ -41,7 +41,6 @@ let isDisable=true
 
 
 
-            {props.registerApi.map(e=><div>log:{e.login} password:{e.password} phone:{e.phone}</div>)}
             register
             <form >
 
