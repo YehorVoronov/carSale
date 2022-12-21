@@ -1,18 +1,16 @@
+@import "../Mixins";
+
 .AllFoot{
-    /*border-radius: 10px;*/
     background: rgb(100,100,100) radial-gradient(circle at 50% 0, rgba(255,255,255,.65), rgba(255,255,255,.35));
-    box-shadow:
-            inset rgba(0,0,0,.6) 0 -3px 8px,
-            inset rgba(252,255,255,.7) 0 3px 8px,
-            rgba(0,0,0,.8) 0 3px 8px -3px;
+    @extend %BoxShadow2;
 }
 .menuBtn{
     text-align: center;
-    padding: 10px;
-}
-.menuBtn a{
+    @include indents($pad:$spase-ten);
+a{
     text-decoration: none;
     color: #0f7afc;
     border-bottom: 1px solid;
     border-bottom-color: rgba(15, 122, 252, 0.2);
+}
 }

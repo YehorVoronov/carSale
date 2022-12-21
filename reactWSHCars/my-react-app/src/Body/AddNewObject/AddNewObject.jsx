@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./AddNewObject.module.css"
+import style from "./AddNewObject.module.scss"
 import {addFirstApi} from "../../redux/homeToolkilReducer";
 import {NavLink,useNavigate} from "react-router-dom";
 

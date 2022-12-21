@@ -1,5 +1,5 @@
 
-import './App.css';
+import './App.scss';
 import Head from "./Head/Head";
 import PageWithOneObject from "./Body/pageWithOneObject/pageWithOneObject";
 import {BrowserRouter, Routes, Route, NavLink} from "react-router-dom";

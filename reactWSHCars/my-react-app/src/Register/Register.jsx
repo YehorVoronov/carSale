@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Register.module.css"
+import style from "./Register.module.scss"
 import Webcam from "react-webcam";
 import {NavLink} from "react-router-dom";
 
@@ -41,19 +41,19 @@ let isDisable=true
 
 
 
-            register
+            <h1>register</h1>
             <form >
 
             <div>
-                login
+                login :
                 <input required type="text"  ref={loginRef}/>
             </div>
             <div>
-                password
+                password :
                 <input required type="text"  ref={passwordRef}/>
             </div>
             <div>
-                phone number
+                phone number :
                 <input required type="tel"  ref={phoneRef}/>
             </div>
 

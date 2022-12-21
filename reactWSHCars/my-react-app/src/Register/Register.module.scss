@@ -1,0 +1,42 @@
+@import "../Mixins";
+
+
+
+.allRegister{
+    h1{
+        text-align: center;
+    }
+
+    @include indents($mg:$spase-ten,$pad:$spase-ten);
+    @include colors($bc:#0f7afc,$col:black,$br:$spase-ten);
+
+
+
+    @extend %BoxShadow;
+
+
+    input{
+        @extend %inputText;
+
+    }
+    button {
+
+        @include colors($bc:white,$col:black,$br:$spase-ten);
+
+        @include indents($mg: 19px 2px,$pad:$spase-ten 32px);
+
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+
+        transition-duration: 0.4s;
+        cursor: pointer;
+
+        border: 2px solid #555555;
+        width: 100%;
+        &:hover {
+            @include colors($bc:#555555,$col:white);
+        }
+    }
+}

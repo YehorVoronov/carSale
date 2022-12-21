@@ -1,0 +1,53 @@
+@import "../../Mixins";
+
+.ObjectForm{
+    @extend %BoxShadow;
+    @include colors($bc:#0f7afc,$col:black,$br:15px);
+    @include indents($mg:$spase-ten,$pad:$spase-ten);
+
+    img{
+    width: 90%;
+    border-radius: $spase-ten;
+    }
+    button{
+        @include colors($bc:#000,$col:white,$br:$spase-ten/2);
+
+        position: relative;
+
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+
+        @include indents($pad:.8em 2em);
+
+    outline: none;
+    background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+    margin-left: 50%;
+    width: 50%;
+        &:active{
+            top: 1px;
+            box-shadow: none;
+        }
+        &:hover{
+            transition: .5s linear;
+            background-position: -200% 0, 0 0;
+        }
+    }
+}
+
+.changePhoto{
+    text-align: center;
+    button{
+    @include indents($mg:0,$pad:0);
+
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+    }
+}
+

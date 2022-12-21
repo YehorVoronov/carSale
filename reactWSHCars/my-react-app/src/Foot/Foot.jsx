@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Foot.module.css"
+import style from "./Foot.module.scss"
 import {InstagramOutlined} from "@ant-design/icons";
 
 export default class Foot extends React.Component {

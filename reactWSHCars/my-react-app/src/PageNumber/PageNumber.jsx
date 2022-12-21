@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./PageNumber.module.css"
+import style from "./PageNumber.module.scss"
 import ReactPaginate from "react-paginate";
 import {LeftSquareOutlined, RightSquareOutlined} from "@ant-design/icons";
 
@@ -13,8 +13,6 @@ let PageNumber=(props)=>{
             {/*{Math.ceil(props.state.length/5)}*/}
             {props.currentPage}
             <button onClick={()=>props.toNextPage()}><RightSquareOutlined style={{ fontSize: '25px', color: '#08c' }}/></button>
-
-
         </div>
     )
 

@@ -1,0 +1,29 @@
+@import "../Mixins";
+
+.loginForm{
+    @include colors($bc:#0f7afc,$col:black,$br:$spase-ten);
+    @include indents($mg:$spase-ten,$pad:$spase-ten);
+    @extend %BoxShadow;
+    input{
+        @extend %inputText
+    }
+button {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    transition-duration: 0.4s;
+    cursor: pointer;
+    @include indents($mg:20px 2px,$pad:16px 32px);
+    @include colors($bc:white,$col:black,$br:$spase-ten+5);
+
+
+    border: 2px solid #555555;
+    width: 100%;
+
+    &:hover {
+        @include colors($bc:#555555,$col:white);
+    }
+}
+}

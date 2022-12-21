@@ -1,0 +1,36 @@
+@import "../Mixins";
+
+
+.headMenu{
+    display: grid;
+    grid-template-areas:'  photo menuBtn';
+
+/*
+    background-color: #182AD4;*/
+
+    background: rgb(100,100,100) radial-gradient(circle at 50% 0, rgba(255,255,255,.65), rgba(255,255,255,.35));
+    @extend %BoxShadow2;
+
+button{
+    display: inline-block;
+    width: 200px;
+    border: 1px solid #fff;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+   @include indents($mg:$spase-ten/2,$pad:8px);
+    @include colors($bc:white,$col:#000,$br:$spase-ten);
+    @extend %BoxShadow2;
+
+  &:hover {
+    @include colors($bc:#555555,$col:white);
+  }
+}
+}
+
+.logo img{
+  @include indents($mg:$spase-ten);
+   width: 30%;
+    border-radius: 10px;
+    opacity: .4;
+}

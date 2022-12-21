@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./ObjectForm.module.css"
+import style from "./ObjectForm.module.scss"
 import {NavLink} from "react-router-dom";
 import PageNumber from "../../PageNumber/PageNumber";
 
@@ -28,9 +28,9 @@ function ObjectForm(props) {
 
                         <img src={e.photoUrl}/>
 
-                        <div>
+                      {/*  <div>
                             some menu
-                        </div>
+                        </div>*/}
                     </div>
                 </NavLink>
             )}

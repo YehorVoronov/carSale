@@ -1,0 +1,24 @@
+@import "../Mixins";
+
+.oneElement{
+    @include indents($mg:$spase-ten,$pad:$spase-ten);
+    @extend %BoxShadow;
+    border-radius: 10px;
+    background: rgb(100,100,100) radial-gradient(circle at 50% 0, rgba(255,255,255,.65), rgba(255,255,255,.35));
+
+}
+.NewsTitle{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    @include colors($bc:#0f7afc,$col:black,$br:$spase-ten);
+    @include indents($mg:$spase-ten*2,$pad:$spase-ten+5);
+    @extend %BoxShadow;
+
+}
+
+@media (max-width: 700px) {
+    .allNews {
+        display: none;
+    }
+}

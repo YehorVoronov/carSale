@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./News.module.css"
+import style from "./News.module.scss"
 
 let News=(props)=>{
     return(<div className={style.allNews}>

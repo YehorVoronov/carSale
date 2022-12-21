@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Login.module.css"
+import style from "./Login.module.scss"
 import Webcam from "react-webcam";
 import {NavLink} from "react-router-dom";
 import {isLogTrue} from "../redux/homeToolkilReducer";
@@ -12,20 +12,18 @@ let Login=(props)=>{
 
 
     return(<div className={style.loginForm}>
-            {props.registerApi.map(e=><div>log:{e.login} password:{e.password} phone:{e.phone}</div>)}
-            register
-            <form >
-
+        {/*    {props.registerApi.map(e=><div>log:{e.login} password:{e.password} phone:{e.phone}</div>)}
+           */} <form >
             <div>
-                login
+                login :
                 <input required type="text"  ref={loginRef}/>
             </div>
             <div>
-                password
-                <input required type="text"  ref={passwordRef}/>
+                password :
+                <input required type="password"  ref={passwordRef}/>
             </div>
             <div>
-                phone number
+                phone number :
                 <input required type="tel"  ref={phoneRef}/>
             </div>
 

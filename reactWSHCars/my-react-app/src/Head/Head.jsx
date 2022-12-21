@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Head.module.css"
+import style from "./Head.module.scss"
 import {NavLink} from "react-router-dom";
 
 export default class Head extends React.Component {

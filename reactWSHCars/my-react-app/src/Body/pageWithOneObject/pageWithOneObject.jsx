@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import style from "./pageWithOneObject.module.css"
+import style from "./pageWithOneObject.module.scss"
 import {NavLink,useNavigate} from "react-router-dom";
 import {LeftCircleOutlined, RightCircleOutlined} from "@ant-design/icons";
 
